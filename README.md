@@ -1,18 +1,17 @@
 # Data Profolio
 
 # Table of Contents
--[Obejective](#Obejective)
-  -[User Story](#User-Story)
--[Data Source](#Data-Source)
--[Stages](#Stages)
-  -[Design](##Design)
-    -[Dashboard requirements](#Dashboard-requirements)
-    -[Tools](#Tools)
-  -[Development](##Development)
-    -[Pseudocode](##Pseudocode)
-    
-  -[Testing](##Testing)
-  -[Analysis](##Analysis)
+- [Obejective](#Obejective)
+  - [User Story](#User-Story)
+- [Data Source](#Data-Source)
+- [Stages](#Stages)
+  - [Design](##Design)
+    - [Dashboard requirements](#Dashboard-requirements)
+    - [Tools](#Tools)
+  - [Development](##Development)
+    - [Pseudocode](##Pseudocode)
+  - [Testing](##Testing)
+  - [Analysis](##Analysis)
 
 # Objective
 The Head of Marketing wants to discover the top performing UK Youtubers to form marketing collaborations with throughout the year 2024. 
@@ -43,8 +42,8 @@ In the file there are 4 key columns for this project.
   * Testing
   * Analysis
 
-##Design
-###Dashboard requirements
+## Design
+### Dashboard requirements
 Here are a few key quesitons that the dashboard should answer:
   * Who are the top 10 YouTubers with the most subscribers?
   * Which 3 channels have uploaded the most videos?
@@ -54,7 +53,7 @@ Here are a few key quesitons that the dashboard should answer:
   * Which 3 channels have the highest subscriber engagement rate per video uploaded?
 These questions are subject to be changed as the analysis progresses.
 
-###Tools
+### Tools
 |Tools     |Purpose                                              |
 |----------|-----------------------------------------------------|
 |Excel     |Exploring the data                                   |
@@ -62,8 +61,8 @@ These questions are subject to be changed as the analysis progresses.
 |Power BI  |Visualising the data in an interactive dashboard     |
 |GitHub    |Hosting the project documentation and version control|
 
-##Development
-###Pseudocode
+## Development
+### Pseudocode
 1. Get the data from Kaggle (Download)
 2. Explore the data in Excel, checking columns names, data consistency, and data features etc.
 3. Create a Database on SQL Server and load the data into SQL Server
