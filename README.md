@@ -9,7 +9,9 @@
     - [Dashboard requirements](#Dashboard-requirements)
     - [Tools](#Tools)
   - [Development](##Development)
-    - [Pseudocode](##Pseudocode)
+    - [Pseudocode](###Pseudocode)
+    - [Data Exploring](###Data-Exploring)
+    - [Data Cleaning](###Data-Cleaning)
   - [Testing](##Testing)
   - [Analysis](##Analysis)
 
@@ -73,3 +75,131 @@ These questions are subject to be changed as the analysis progresses.
 8. Generate the findings based on the insights
 9. Write the documentation + commentary
 10. Publish the data to GitHub Pages
+
+### Data Exploring
+1. The data contains 4 key columns for all the analysis and visualisation. We don't need any extra data from other stakeholders.
+2. The first column contains the channel ID + channel IDS, which are separated by a '@' symbol, which channel IDS needs to be extracted from.
+3. Some of the cells and header names are in a different language or are garbled characters. It doesn't appear to impact on what we need.
+4. The data have extra columns that are irelevent to this project.
+
+### Data Cleaning 
+Below is a table outlining the constraints on our cleaned dataset:
+
+| Property | Description |
+| --- | --- |
+| Number of Rows | 100 |
+| Number of Columns | 4 |
+
+And here is a tabular representation of the expected schema for the clean data:
+
+| Column Name | Data Type | Nullable |
+| --- | --- | --- |
+| channel_name | VARCHAR | NO |
+| total_subscribers | INTEGER | NO |
+| total_views | INTEGER | NO |
+| total_videos | INTEGER | NO |
+
+Also there are few steps needed:
+1. Remove unnecessary columns by only selecting the ones you need
+2. Extract Youtube channel names from the first column
+3. Rename columns using aliases
+
+```sql
+/*
+# 1. Select the required columns
+# 2. Extract the channel name from the 'NOMBRE' column
+*/
+
+-- 1.
+SELECT
+    SUBSTRING(NOMBRE, 1, CHARINDEX('@', NOMBRE) -1) AS channel_name,  -- 2. & 3.
+    total_subscribers,
+    total_views,
+    total_videos
+
+FROM
+    top_uk_youtubers_2024
+```
+
+##Testing
+4 testings are conducted before the data is loaded to Power BI.
+
+###Row Count Check
+```sql
+/*
+# Count the total number of records (or rows) are in the SQL view
+*/
+
+SELECT
+    COUNT(*) AS no_of_rows
+FROM
+    view_uk_youtubers_2024;
+
+```
+
+###Column Count Check
+```sql
+/*
+# Count the total number of columns (or fields) are in the SQL view
+*/
+
+
+SELECT
+    COUNT(*) AS column_count
+FROM
+    INFORMATION_SCHEMA.COLUMNS
+WHERE
+    TABLE_NAME = 'view_uk_youtubers_2024'
+```
+
+###Data Type Check
+```sql
+/*
+# Check the data types of each column from the view by checking the INFORMATION SCHEMA view
+*/
+
+-- 1.
+SELECT
+    COLUMN_NAME,
+    DATA_TYPE
+FROM
+    INFORMATION_SCHEMA.COLUMNS
+WHERE
+    TABLE_NAME = 'view_uk_youtubers_2024';
+```
+
+###Duplicate Check
+```sql
+/*
+# 1. Check for duplicate rows in the view
+# 2. Group by the channel name
+# 3. Filter for groups with more than one row
+*/
+
+-- 1.
+SELECT
+    channel_name,
+    COUNT(*) AS duplicate_count
+FROM
+    view_uk_youtubers_2024
+
+-- 2.
+GROUP BY
+    channel_name
+
+-- 3.
+HAVING
+    COUNT(*) > 1;
+```
+
+
+
+
+
+
+
+
+
+
+
+
