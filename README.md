@@ -137,6 +137,10 @@ FROM
 
 ```
 
+#### Output
+
+![Row count check](assets/images/row_count_check.png)
+
 ### Column Count Check
 ```sql
 /*
@@ -151,6 +155,10 @@ FROM
 WHERE
     TABLE_NAME = 'view_uk_youtubers_2024'
 ```
+
+#### Output
+
+![Column count check](assets/images/column_count_check.png)
 
 ### Data Type Check
 ```sql
@@ -167,6 +175,9 @@ FROM
 WHERE
     TABLE_NAME = 'view_uk_youtubers_2024';
 ```
+#### Output
+
+![Data type check](assets/images/data_type.png)
 
 ### Duplicate Check
 ```sql
