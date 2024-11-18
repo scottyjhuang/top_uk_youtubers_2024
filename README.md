@@ -430,7 +430,7 @@ To start with, we will answer the questions from internal customer
 
 ## Key feature Analysis
 
-Below are the key features that determine top Youtuber in the UK. They are important in generating ROI for the internal customer.
+Below are the key features that determine top Youtuber in the UK. They are important in generating ROI for the internal customer. For the top 3 YouTuber of the each key feasure we will calculate the ROI of product placement, sponsored video series, and Influencer marketing.
 - subscribers
 - total views
 - videos uploaded
@@ -441,11 +441,10 @@ To calculate expected profit, we need to make the below assumptions.
 
 - The Product cost is at $5
 - The conversion rate is assumed to be 2% across all channels. (In practice, historical data for each channel can be analyzed to identify trends and provide more accurate projections for conversion rates.)
-- The one-time campaign cost is set at $50,000, 3-month contact at $130,000 and 1 video costs $5,000 for all channels. (In reality, each YouTuber may have a different quote for the campaign. To refine the analysis, specific quotes would be required from individual YouTubers.)
+- The one-time campaign cost is set at $50,000 (Product Placement), 3-month contract at $130,000 (Influencer marketing) or 1 video costs $5,000 (sponsored video series) for all channels. (In reality, each YouTuber may have a different quote for the campaign. To refine the analysis, specific quotes would be required from individual YouTubers.)
 
 ### 1. Youtubers with the most subscribers 
 
-Campaign idea  product placement 
 
 ```sql
 /* 
@@ -461,48 +460,156 @@ Campaign idea  product placement
 
 -- 1. 
 DECLARE @conversionRate FLOAT = 0.02;		-- The conversion rate @ 2%
-DECLARE @productCost FLOAT = 5.0;			-- The product cost @ $5
-DECLARE @campaignCost FLOAT = 50000.0;		-- The campaign cost @ $50,000	
-
+DECLARE @productCost MONEY = 5.0;		-- The product cost @ $5
+DECLARE @campaignCost MONEY = 50000.0;		-- The campaign cost @ $50,000	
+DECLARE @numberOfVideos INT = 11;               -- The number of videos (11)
+DECLARE @campaignCostPerVideo FLOAT = 5000.0;   -- The campaign cost per video @ $5,000
+DECLARE @campaignCostM MONEY = 130000.0;	-- The campaign cost @ $130,000
 
 -- 2.  
 WITH ChannelData AS (
     SELECT 
         channel_name,
+		total_subscribers,
         total_views,
         total_videos,
         ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
     FROM 
         youtube_db.dbo.view_uk_youtubers_2024
 )
-
--- 3. 
-SELECT 
+-- 3.
+SELECT TOP 3
     channel_name,
     rounded_avg_views_per_video,
     (rounded_avg_views_per_video * @conversionRate) AS potential_units_sold_per_video,
     (rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
-    ((rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost) AS net_profit
+    (rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost)AS net_profit_product_placement,
+    (rounded_avg_views_per_video * @conversionRate * @productCost) - (@campaignCostPerVideo * @numberOfVideos) AS net_profit_sponsored_video_series,
+    (rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCostM AS net_profit_Influencer_marketing
+    
 FROM 
     ChannelData
 
-
 -- 4. 
-WHERE 
-    channel_name in ('NoCopyrightSounds', 'DanTDM', 'Dan Rhodes')    
-
-
 -- 5.  
 ORDER BY
-	net_profit DESC
+	total_subscribers DESC
 ```
 #### Output
-![Most subsc](assets/images/youtubers_with_the_most_subs.png)
+![Most subsc](assets/images/Top3_subscribers.png)
 
 ### 2. Youtubers with the most total views
 
+```sql
+/* 
+
+# 1. Define variables 
+# 2. Create a CTE that rounds the average views per video 
+# 3. Select the column you need and create calculated columns from existing ones 
+# 4. Filter results by Youtube channels
+# 5. Sort results by net profits (from highest to lowest)
+
+*/
+
+
+-- 1. 
+DECLARE @conversionRate FLOAT = 0.02;		-- The conversion rate @ 2%
+DECLARE @productCost MONEY = 5.0;		-- The product cost @ $5
+DECLARE @campaignCost MONEY = 50000.0;		-- The campaign cost @ $50,000	
+DECLARE @numberOfVideos INT = 11;               -- The number of videos (11)
+DECLARE @campaignCostPerVideo FLOAT = 5000.0;   -- The campaign cost per video @ $5,000
+DECLARE @campaignCostM MONEY = 130000.0;	-- The campaign cost @ $130,000
+
+-- 2.  
+WITH ChannelData AS (
+    SELECT 
+        channel_name,
+		total_subscribers,
+        total_views,
+        total_videos,
+        ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
+    FROM 
+        youtube_db.dbo.view_uk_youtubers_2024
+)
+-- 3.
+SELECT TOP 3
+    channel_name,
+    rounded_avg_views_per_video,
+    (rounded_avg_views_per_video * @conversionRate) AS potential_units_sold_per_video,
+    (rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
+    (rounded_avg_views_per_video * @conversionRate * @productCost - @campaignCost)AS net_profit_product_placement,
+    (rounded_avg_views_per_video * @conversionRate * @productCost) - (@campaignCostPerVideo * @numberOfVideos) AS net_profit_sponsored_video_series,
+    (rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCostM AS net_profit_Influencer_marketing
+    
+FROM 
+    ChannelData
+
+-- 4. 
+-- 5.  
+ORDER BY
+	total_views DESC
+```
+#### Output
+![Most subsc](assets/images/Top3_views.png)
+
+
 ### 3. Youtubers with the most videos uploaded
 
+The Top 5 most videos uploaded are media (e.g. BBC News) which are not the potential partners.
+Therefore we skip first 5 rows and take top 6-8 instead.
+
+```sql
+/* 
+
+# 1. Define variables 
+# 2. Create a CTE that rounds the average views per video 
+# 3. Select the column you need and create calculated columns from existing ones 
+# 4. Filter results by Youtube channels
+# 5. Sort results by net profits (from highest to lowest)
+
+*/
+
+
+-- 1. 
+DECLARE @conversionRate FLOAT = 0.02;		-- The conversion rate @ 2%
+DECLARE @productCost MONEY = 5.0;		-- The product cost @ $5
+DECLARE @campaignCost MONEY = 50000.0;		-- The campaign cost @ $50,000	
+DECLARE @numberOfVideos INT = 11;               -- The number of videos (11)
+DECLARE @campaignCostPerVideo FLOAT = 5000.0;   -- The campaign cost per video @ $5,000
+DECLARE @campaignCostM MONEY = 130000.0;	-- The campaign cost @ $130,000
+
+-- 2.  
+WITH ChannelData AS (
+    SELECT 
+        channel_name,
+		total_subscribers,
+        total_views,
+        total_videos,
+        ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
+    FROM 
+        youtube_db.dbo.view_uk_youtubers_2024
+)
+-- 3.
+SELECT
+    channel_name,
+    rounded_avg_views_per_video,
+    (rounded_avg_views_per_video * @conversionRate) AS potential_units_sold_per_video,
+    (rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
+    (rounded_avg_views_per_video * @conversionRate * @productCost - @campaignCost)AS net_profit_product_placement,
+    (rounded_avg_views_per_video * @conversionRate * @productCost) - (@campaignCostPerVideo * @numberOfVideos) AS net_profit_sponsored_video_series,
+    (rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCostM AS net_profit_Influencer_marketing
+    
+FROM 
+    ChannelData
+
+-- 4. 
+-- 5.  
+ORDER BY
+	total_videos DESC
+OFFSET 5 ROWS FETCH NEXT 3 ROWS ONLY
+```
+#### Output
+![Most subsc](assets/images/Top3_videos.png)
 
 
 
