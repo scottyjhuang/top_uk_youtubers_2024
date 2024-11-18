@@ -1,4 +1,4 @@
-# Top UK YouTubers Analysis - (Excel -> SQL Server -> Power BI)
+# Top UK YouTubers Analysis - (<code style="color : green">Excel</code> -> SQL Server -> Power BI)
 
 # Table of Contents
 - [Obejective](#Obejective)
