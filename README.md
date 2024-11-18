@@ -191,6 +191,8 @@ GROUP BY
 HAVING
     COUNT(*) > 1;
 ```
+####Output
+![Duplicate count check](assets/images/Duplicate Check.png)
 
 
 
