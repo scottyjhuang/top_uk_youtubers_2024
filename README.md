@@ -121,10 +121,10 @@ FROM
     top_uk_youtubers_2024
 ```
 
-##Testing
+## Testing
 4 testings are conducted before the data is loaded to Power BI.
 
-###Row Count Check
+### Row Count Check
 ```sql
 /*
 # Count the total number of records (or rows) are in the SQL view
@@ -137,7 +137,7 @@ FROM
 
 ```
 
-###Column Count Check
+### Column Count Check
 ```sql
 /*
 # Count the total number of columns (or fields) are in the SQL view
@@ -152,7 +152,7 @@ WHERE
     TABLE_NAME = 'view_uk_youtubers_2024'
 ```
 
-###Data Type Check
+### Data Type Check
 ```sql
 /*
 # Check the data types of each column from the view by checking the INFORMATION SCHEMA view
@@ -168,7 +168,7 @@ WHERE
     TABLE_NAME = 'view_uk_youtubers_2024';
 ```
 
-###Duplicate Check
+### Duplicate Check
 ```sql
 /*
 # 1. Check for duplicate rows in the view
