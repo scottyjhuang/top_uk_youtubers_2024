@@ -488,7 +488,7 @@ SELECT TOP 3
     rounded_avg_views_per_video,
     (rounded_avg_views_per_video * @conversionRate) AS potential_units_sold_per_video,
     (rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
-    (rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost)AS net_profit_product_placement,
+    (rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost AS net_profit_product_placement,
     (rounded_avg_views_per_video * @conversionRate * @productCost) - (@campaignCostPerVideo * @numberOfVideos) AS net_profit_sponsored_video_series,
     (rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCostM AS net_profit_Influencer_marketing
     
