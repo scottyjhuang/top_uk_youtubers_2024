@@ -1,4 +1,4 @@
-# Top UK YouTubers Analysis - (<code style="color : green">Excel</code> -> <code style="color : blue">SQL Server</code> -> <code style="color : yellow">Power BI</code>)
+# Top UK YouTubers Analysis - (Excel->SQL Server->yellow)
 
 # Table of Contents
 - [Obejective](#Obejective)
