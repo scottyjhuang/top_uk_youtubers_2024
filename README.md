@@ -120,6 +120,9 @@ SELECT
 FROM
     top_uk_youtubers_2024
 ```
+#### Output
+
+![Data Cleaning](assets/images/data_cleaning.png)
 
 ## Testing
 4 testings are conducted before the data is loaded to Power BI.
@@ -177,7 +180,7 @@ WHERE
 ```
 #### Output
 
-![Data type check](assets/images/data_type.png)
+![Data type check](assets/images/data_type_check.png)
 
 ### Duplicate Check
 ```sql
