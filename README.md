@@ -62,6 +62,7 @@ Here are a few key quesitons that the dashboard should answer:
 These questions are subject to be changed as the analysis progresses.
 
 ### Tools
+
 | Tools | Purpose |
 | --- | --- |
 | Excel | Exploring the data |
