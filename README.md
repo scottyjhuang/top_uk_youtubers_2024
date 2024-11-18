@@ -358,12 +358,150 @@ VAR viewsPerSubscriber = DIVIDE(sumOfTotalViews, sumOfTotalSubscribers, BLANK())
 RETURN viewsPerSubscriber 
 
 ```
-#Analysis
+# Analysis
+
+To start with, we will answer the questions from internal customer
+
+## Questions Answered
+
+### 1. Who are the top 10 YouTubers with the most subscribers?
+
+| Rank | Channel Name         | Subscribers (M) |
+|------|----------------------|-----------------|
+| 1    | NoCopyrightSounds    | 33.60           |
+| 2    | DanTDM               | 28.60           |
+| 3    | Dan Rhodes           | 26.50           |
+| 4    | Miss Katy            | 24.50           |
+| 5    | Mister Max           | 24.40           |
+| 6    | KSI                  | 24.10           |
+| 7    | Jelly                | 23.50           |
+| 8    | Dua Lipa             | 23.30           |
+| 9    | Sidemen              | 21.00           |
+| 10   | Ali-A                | 18.90           |
+
+
+### 2. Which 3 channels have uploaded the most videos?
+
+| Rank | Channel Name    | Videos Uploaded |
+|------|-----------------|-----------------|
+| 1    | GRM Daily       | 14,696          |
+| 2    | Manchester City | 8,248           |
+| 3    | Yogscast        | 6,435           |
 
 
 
+### 3. Which 3 channels have the most views?
 
 
+| Rank | Channel Name | Total Views (B) |
+|------|--------------|-----------------|
+| 1    | DanTDM       | 19.78           |
+| 2    | Dan Rhodes   | 18.56           |
+| 3    | Mister Max   | 15.97           |
+
+
+### 4. Which 3 channels have the highest average views per video?
+
+| Channel Name | Averge Views per Video (M) |
+|--------------|-----------------|
+| Mark Ronson  | 32.27           |
+| Jessie J     | 5.97            |
+| Dua Lipa     | 5.76            |
+
+
+### 5. Which 3 channels have the highest views per subscriber ratio?
+
+| Rank | Channel Name       | Views per Subscriber        |
+|------|-----------------   |---------------------------- |
+| 1    | GRM Daily          | 1185.79                     |
+| 2    | Nickelodeon        | 1061.04                     |
+| 3    | Disney Junior UK   | 1031.97                     |
+
+
+
+### 6. Which 3 channels have the highest subscriber engagement rate per video uploaded?
+
+| Rank | Channel Name    | Subscriber Engagement Rate  |
+|------|-----------------|---------------------------- |
+| 1    | Mark Ronson     | 343,000                     |
+| 2    | Jessie J        | 110,416.67                  |
+| 3    | Dua Lipa        | 104,954.95                  |
+
+
+## Key feature Analysis
+
+Below are the key features that determine top Youtuber in the UK. They are important in generating ROI for the internal customer.
+- subscribers
+- total views
+- videos uploaded
+
+### Assumption
+
+To calculate expected profit, we need to make the below assumptions.
+
+- The Product cost is at $5
+- The conversion rate is assumed to be 2% across all channels. (In practice, historical data for each channel can be analyzed to identify trends and provide more accurate projections for conversion rates.)
+- The one-time campaign cost is set at $50,000, 3-month contact at $130,000 and 1 video costs $5,000 for all channels. (In reality, each YouTuber may have a different quote for the campaign. To refine the analysis, specific quotes would be required from individual YouTubers.)
+
+### 1. Youtubers with the most subscribers 
+
+Campaign idea  product placement 
+
+```sql
+/* 
+
+# 1. Define variables 
+# 2. Create a CTE that rounds the average views per video 
+# 3. Select the column you need and create calculated columns from existing ones 
+# 4. Filter results by Youtube channels
+# 5. Sort results by net profits (from highest to lowest)
+
+*/
+
+
+-- 1. 
+DECLARE @conversionRate FLOAT = 0.02;		-- The conversion rate @ 2%
+DECLARE @productCost FLOAT = 5.0;			-- The product cost @ $5
+DECLARE @campaignCost FLOAT = 50000.0;		-- The campaign cost @ $50,000	
+
+
+-- 2.  
+WITH ChannelData AS (
+    SELECT 
+        channel_name,
+        total_views,
+        total_videos,
+        ROUND((CAST(total_views AS FLOAT) / total_videos), -4) AS rounded_avg_views_per_video
+    FROM 
+        youtube_db.dbo.view_uk_youtubers_2024
+)
+
+-- 3. 
+SELECT 
+    channel_name,
+    rounded_avg_views_per_video,
+    (rounded_avg_views_per_video * @conversionRate) AS potential_units_sold_per_video,
+    (rounded_avg_views_per_video * @conversionRate * @productCost) AS potential_revenue_per_video,
+    ((rounded_avg_views_per_video * @conversionRate * @productCost) - @campaignCost) AS net_profit
+FROM 
+    ChannelData
+
+
+-- 4. 
+WHERE 
+    channel_name in ('NoCopyrightSounds', 'DanTDM', 'Dan Rhodes')    
+
+
+-- 5.  
+ORDER BY
+	net_profit DESC
+```
+#### Output
+![Most subsc](assets/images/youtubers_with_the_most_subs.png)
+
+### 2. Youtubers with the most total views
+
+### 3. Youtubers with the most videos uploaded
 
 
 
