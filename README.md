@@ -5,15 +5,15 @@
   - [User Story](#User-Story)
 - [Data Source](#Data-Source)
 - [Stages](#Stages)
-  - [Design](##Design)
+  - [Design](#Design)
     - [Dashboard requirements](#Dashboard-requirements)
     - [Tools](#Tools)
-  - [Development](##Development)
-    - [Pseudocode](###Pseudocode)
-    - [Data Exploring](###Data-Exploring)
-    - [Data Cleaning](###Data-Cleaning)
-  - [Testing](##Testing)
-  - [Analysis](##Analysis)
+  - [Development](#Development)
+    - [Pseudocode](#Pseudocode)
+    - [Data Exploring](#Data-Exploring)
+    - [Data Cleaning](#Data-Cleaning)
+  - [Testing](#Testing)
+  - [Analysis](#Analysis)
 
 # Objective
 The Head of Marketing wants to discover the top performing UK Youtubers to form marketing collaborations with throughout the year 2024. 
