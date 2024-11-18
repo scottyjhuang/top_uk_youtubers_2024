@@ -13,6 +13,7 @@
     - [Data Exploring](#Data-Exploring)
     - [Data Cleaning](#Data-Cleaning)
   - [Testing](#Testing)
+  - [Visualisation](#Visualisation)
   - [Analysis](#Analysis)
 
 # Objective
@@ -209,6 +210,10 @@ HAVING
 
 ![Duplicate count check](assets/images/duplicate_check.png)
 
+
+### Visualisation
+
+![GIF of Power BI Dashboard](assets/images/interactive_dashboard.gif)
 
 
 
