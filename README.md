@@ -15,6 +15,11 @@
   - [Testing](#Testing)
   - [Visualisation](#Visualisation)
   - [Analysis](#Analysis)
+    - [Questions Answered](#Questions-Answered)
+    - [Key feature Analysis](#Key-feature-Analysis)
+    - [Findings](#Findings)
+    - [Recommendation](#Recommendation)
+- [Conclusion](#Conclusion)
 
 # Objective
 The Head of Marketing wants to discover the top performing UK Youtubers to form marketing collaborations with throughout the year 2024. 
@@ -637,16 +642,18 @@ OFFSET 5 ROWS FETCH NEXT 3 ROWS ONLY
 3. A product placement campaign with DanTDM is estimated to bring in $484,000 per video, while an influencer marketing deal could result in a one-time net profit of $404,000.
 4. Collaborating with NoCopyrightSounds could yield a profit of $642,000 per video. However, further investigation is needed as it is not a typical channel.
 
-### Action plan
+### Action Plan
 
 Based on our analysis, we recommend pursuing a long-term partnership with Dan Rhodes as the top choice for promoting the client's products.
-
 We will first engage with the marketing client to align on expectations for this collaboration. If we achieve the desired milestones, we will then explore potential partnerships with DanTDM, Mister Max, and NoCopyrightSounds in the future.
 
-### Action Plan:
-1. **Initiate Contact**: Reach out to the teams behind each channel, starting with Dan Rhodes. If capacity allows, initiate discussions with Mister Max for a potential short-term collaboration.
+1. **Initiate Contact**: Reach out to the teams behind each channel, starting with Dan Rhodes.
 2. **Negotiate Contracts**: Finalize agreements within the allocated marketing campaign budgets.
 3. **Launch Campaigns**: Execute the campaigns and monitor performance against defined KPIs.
 4. **Analyze Results**: Evaluate campaign outcomes, gather insights, and optimize strategies based on customer feedback and audience engagement.
 
+# Conclusion
 
+This project has analyzed UK YouTube channel data to identify the best influencers for marketing collaborations. The Power BI dashboard offers key insights into top channels based on subscribers, views, and engagement metrics, aiding strategic decision-making.
+Our analysis recommends starting with **Dan Rhodes** for a long-term partnership due to his strong engagement and large subscriber base. **Mister Max** is the top choice for immediate ROI, while **DanTDM** offers stable, long-term visibility. NoCopyrightSounds shows potential but needs further review due to its unique content type.
+The action plan includes **initiating outreach**, **negotiating contracts**, **launching campaigns**, and **monitoring performance**. These steps will help maximize reach and ROI, providing a clear path for effective influencer partnerships in 2024.
