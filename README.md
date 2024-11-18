@@ -612,5 +612,41 @@ OFFSET 5 ROWS FETCH NEXT 3 ROWS ONLY
 ![Most subsc](assets/images/Top3_videos.png)
 
 
+## Findings
+
+1. NoCopyrightSOunds, Dan Rhodes and DanTDM are the channnels with the most subscribers in the UK
+2. GRM Daily, Man City and Yogscast are the channels with the most videos uploaded
+3. News Channels are with the most views. If we ignore them, DanTDM, Dan Rhodes and Mister Max are the channels with the most views 
+4. Entertainment channels are valuable for achieving broader reach, as they consistently post content and typically generate the highest engagement. These channels, especially those focused on entertainment and music, tend to have large, active audiences, making them ideal for maximizing visibility and brand exposure.
+
+## Recommendations 
+ 
+1. Dan Rhodes is an ideal collaborator for maximizing visibility, with the largest UK subscriber base (27.1 million) and over 19 billion total views. His highly engaged audience makes him a top choice for impactful campaigns.
+2. While GRM Daily, Man City, and Yogscast are top UK publishers, collaborating with them may not be cost-effective given budget constraints, as their potential ROI is lower compared to other channels with higher engagement like DanTDM and Dan Rhodes.
+3. Mister Max is excellent for immediate reach, offering the highest ROI across various marketing campaigns.
+4. While DanTDM has a lower ROI compared to Dan Rhodes, it remains a viable partnership option due to its stable viewership and consistent subscriber base, offering potential for long-term growth.
+
+
+### Potential ROI 
+
+1. A collaboration deal with Dan Rhodes is projected to yield a net profit of $1,065,000 per video.
+2. Partnering with Mister Max could generate:
+   - $1,356,000 from product placements,
+   - $1,351,000 from a sponsored video series, and
+   - $1,276,000 from influencer marketing campaigns.
+3. A product placement campaign with DanTDM is estimated to bring in $484,000 per video, while an influencer marketing deal could result in a one-time net profit of $404,000.
+4. Collaborating with NoCopyrightSounds could yield a profit of $642,000 per video. However, further investigation is needed as it is not a typical channel.
+
+### Action plan
+
+Based on our analysis, we recommend pursuing a long-term partnership with Dan Rhodes as the top choice for promoting the client's products.
+
+We will first engage with the marketing client to align on expectations for this collaboration. If we achieve the desired milestones, we will then explore potential partnerships with DanTDM, Mister Max, and NoCopyrightSounds in the future.
+
+### Action Plan:
+1. **Initiate Contact**: Reach out to the teams behind each channel, starting with Dan Rhodes. If capacity allows, initiate discussions with Mister Max for a potential short-term collaboration.
+2. **Negotiate Contracts**: Finalize agreements within the allocated marketing campaign budgets.
+3. **Launch Campaigns**: Execute the campaigns and monitor performance against defined KPIs.
+4. **Analyze Results**: Evaluate campaign outcomes, gather insights, and optimize strategies based on customer feedback and audience engagement.
 
 
