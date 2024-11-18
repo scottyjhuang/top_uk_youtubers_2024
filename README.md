@@ -358,6 +358,8 @@ VAR viewsPerSubscriber = DIVIDE(sumOfTotalViews, sumOfTotalSubscribers, BLANK())
 RETURN viewsPerSubscriber 
 
 ```
+#Analysis
+
 
 
 
