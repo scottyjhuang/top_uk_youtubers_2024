@@ -193,7 +193,7 @@ HAVING
 ```
 #### Output
 
-![Duplicate count check](assets/images/Duplicate_Check.png)
+![Duplicate count check](assets/images/duplicate_check.png)
 
 
 
